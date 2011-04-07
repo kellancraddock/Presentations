@@ -140,20 +140,24 @@
             	<h4><a href="http://rg03.wordpress.com/2007/06/10/distributed-versus-centralized-version-control-systems/">Centralized</a></h4>
             	<dl>
             		<dt>Examples of Centralized Programs</dt>
-            			<dd>Subversion (SVN), Bazaar, Version Cue, Perforce</dd>
-            		<dt>All changes are tracked (though commits) in a server-side remote repository</dt>
-            		<dt>The user or client arbitrarily checks out and commits changes to the remote repo. Then the <em>remote repo</em> handles the changesets (called deltas), merging and all other version control operations.</dt>
+            		<dd>Subversion (SVN), Bazaar, Version Cue, Perforce</dd>
             	</dl>
+            	<ul>
+            		<li>All changes are tracked (though commits) in a server-side remote repository</li>
+            		<li>The user or client arbitrarily checks out and commits changes to the remote repo. Then the <em>remote repo</em> handles the changesets (called deltas), merging and all other version control operations.</li>
+            	</ul>
             </section>
             
             <section class="distributed">
 	            <h4><a href="http://en.wikipedia.org/wiki/Distributed_revision_control">Distributed</a></h4>
             	<dl>
             		<dt>Examples of Distributed Programs</dt>
-            			<dd>Git, Mercurial, darcs</dd>
-            		<dt><strong>EVERYONE</strong> (both client and server) has a copy of the <em>full</em> repository, meaning they have full access to the entire history of the repo including every commit ever made.</dt>
-            		<dt>All repo operations like handling changesets, merging, etc. occur <em>locally</em>.</dt>
+            		<dd>Git, Mercurial, darcs</dd>
             	</dl>
+            	<ul>
+            		<li><strong>EVERYONE</strong> (both client and server) has a copy of the <em>full</em> repository, meaning they have full access to the entire history of the repo including every commit ever made.</li>
+            		<li>All repo operations like handling changesets, merging, etc. occur <em>locally</em>.</li>
+            	</ul>
 	        </section>
         </article>
     </section>
