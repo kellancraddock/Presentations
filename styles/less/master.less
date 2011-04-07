@@ -103,6 +103,15 @@ p {
 	margin-bottom: 10px;
 }
 
+em {
+	font-style: italic;
+}
+
+strong {
+	font-style: italic;
+	font-weight: bold;
+}
+
 dl {
 	margin-bottom: 10px;
 }
@@ -123,7 +132,10 @@ ul {
 
 /* !Links */
 a {
-	text-decoration: none;
+	text-decoration: underline;
+	color: inherit;
+}
+a:hover, a:active {
 	color: @link-color;
 }
 
