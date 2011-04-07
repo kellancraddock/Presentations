@@ -17,17 +17,21 @@
     </script>
     <![endif]-->
     <!-- JS libraries -->
+    <script src="../javascript/highlight/highlight.js"></script>
     <!-- JS plugins -->
     <!-- JS Helpers -->
     <!-- JS MVC -->
     <!-- JS scripts -->
+    <script>
+		hljs.initHighlightingOnLoad('php','javascript, bash');
+	</script>
 </head>
 
 <body>
     <!-- start title slide -->
     <section class="slide title">
         <article class="slideContent">
-            <p>Welcome to <strong>Git Camp v01</strong></p>
+            <h2>Welcome to <strong>Git Camp v01</strong></h2>
         </article>
     </section>
     <!-- end title slide -->
@@ -217,18 +221,18 @@
             
             <dl>
             	<dt>Initializing Git</dt>
-            		<dd>$ git init</dd>
+            		<dd><pre><code>$ git init</code></pre></dd>
             	<dt>Adding a file or making code edits through the text editor of your choice</dt>
             	<dt>Checking the status of your repo</dt>
-            		<dd>$ git status</dd>
+            		<dd><pre><code>$ git status</code></pre></dd>
             	<dt>Adding the unstaged changes</dt>
-            		<dd>$ git add [path]</dd>
+            		<dd><pre><code>$ git add [path]</code></pre></dd>
             		<dd>eg. $ git add css/master.css</dd>
             	<dt>Committing your staged change to your local repo with a descriptive message</dt>
-            		<dd>$ git commit -m [your message]</dd>
+            		<dd><pre><code>$ git commit -m [your message]</code></pre></dd>
             		<dd>eg. $ git commit -m "Fixed bug #4 by adding a hasLayout fix to the sidebar div"</dd>
             	<dt>Finding Help</dt>
-            		<dd>$ git help</dd>
+            		<dd><pre><code>$ git help</code></pre></dd>
             		<dd>eg. $ git help bisect (shift + q to escape)</dd>
             </dl>
         </article>
@@ -272,14 +276,14 @@
             
             <dl>
             	<dt>Once you're ready to host your code, Add a remote repo</dt>
-            		<dd>$ git remote add [remote name] [remote url]</dd>
+            		<dd><pre><code>$ git remote add [remote name] [remote url]</code></pre></dd>
             		<dd>eg. $ git remote add origin git@codebasehq.com:cmdagency/my-awesome-new-remote-repo/</dd>
             	<dt>Follow the Basic Git Workflow by making code edits, add and commit all changes to your local repo</dt>
             	<dt>Pull any new changes from the remote repo to your local repo</dt>
-            		<dd>$ git pull [remote name] [branch name]</dd>
+            		<dd><pre><code>$ git pull [remote name] [branch name]</code></pre></dd>
             		<dd>eg. $ git pull origin master</dd>
             	<dt>Push your local changes to the remote repo</dt>
-            		<dd>$ git push [remote name] [branch name]</dd>
+            		<dd><pre><code>$ git push [remote name] [branch name]</code></pre></dd>
             		<dd>eg. $ git push origin master</dd>
             </dl>
         </article>
