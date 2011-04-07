@@ -1,33 +1,270 @@
 @charset "utf-8";
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
-body{line-height:1;padding:20px;}
-ol,ul{list-style:none;}
-blockquote,q{quotes:none;}
-blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-table{border-collapse:collapse;border-spacing:0;}
-body{font-family:Verdana,Arial,sans-serif;font-size:14px;background:#31373e;color:#8aa8b0;counter-reset:page;margin:20px;line-height:normal;}
-p{line-height:16px;margin-bottom:10px;}
-em{font-style:italic;}
-strong{font-style:italic;font-weight:bold;}
-dl{margin-bottom:10px;}
-dd{text-indent:1em;}
-ul{list-style:disc;color:#A6A6A6;list-style-position:inside;margin-bottom:20px;}ul li{margin-bottom:5px;}
-a{text-decoration:underline;color:inherit;}
-a:hover,a:active{color:#2a85dd;}
-.button{border:2px solid #ccc;display:block;float:left;-moz-border-radius:5px 5px 5px 5px;-webkit-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;background:#ffffff;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0));background:-moz-linear-gradient(top, #ffffff, #f0f0f0);padding:6px 14px;font-weight:bold;text-shadow:0px 1px 1px #bdbdbd 0px 2px #2e2e2e;}.button:hover{border:2px solid #fff;color:#fff;background:#5c78a0;background:-webkit-gradient(linear, left top, left bottom, from(#5c78a0), to(#0f3f5b));background:-moz-linear-gradient(top, #5c78a0, #0f3f5b);}
-h1,h2,h3,h4,h5,h6{font-weight:bold;color:#fb7b22;text-shadow:3px 3px 5px #222222;}
-h1{font-size:200%;margin-bottom:4%;}
-h2,h3{font-size:175%;margin-bottom:3%;}
-h4{font-size:125%;margin-bottom:2%;}
-p{line-height:150%;}
-ul li{margin-bottom:2%;}
-dl{margin-bottom:2%;}
-dt{margin-top:25px;font-weight:bold;color:#dedede;text-shadow:2px 2px 8px #222222;}
-dd{margin:1% 0;}
-pre{border:4px solid #5E5E5E;padding:.5%;margin:.5% 0;background:#1c2024;}
-code{font-family:"Andale Mono";}
-img{background:#555;padding:6px;}
-[selector]:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
-* html [selector]{height:1%;}
-*:first-child+html [selector]{min-height:1px;}
+/* !RESET */
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  padding: 20px;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* !MASTER STYLES */
+/* Author: Kellan Craddock
+ * Email: kcraddock@cmdagency.com
+ */
+/* !VARS */
+/* !GLOBAL */
+/* !Text */
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 14px;
+  background: #31373e;
+  color: #8aa8b0;
+  counter-reset: page;
+  margin: 20px;
+  line-height: normal;
+}
+p {
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-style: italic;
+  font-weight: bold;
+}
+dl {
+  margin-bottom: 10px;
+}
+dd {
+  text-indent: 1em;
+}
+ul {
+  list-style: disc;
+  color: #A6A6A6;
+  list-style-position: inside;
+  margin-bottom: 20px;
+}
+ul li {
+  margin-bottom: 5px;
+}
+/* !Links */
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+a:hover, a:active {
+  color: #2a85dd;
+}
+/* !Buttons */
+.button {
+  border: 2px solid #ccc;
+  display: block;
+  float: left;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0));
+  background: -moz-linear-gradient(top, #ffffff, #f0f0f0);
+  padding: 6px 14px;
+  font-weight: bold;
+  text-shadow: 0px 1px 1px #bdbdbd 0px 2px #2e2e2e;
+}
+.button:hover {
+  border: 2px solid #fff;
+  color: #fff;
+  background: #5c78a0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#5c78a0), to(#0f3f5b));
+  background: -moz-linear-gradient(top, #5c78a0, #0f3f5b);
+}
+/* !SECTIONS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: #fb7b22;
+  text-shadow: 3px 3px 5px #222222;
+}
+h1 {
+  font-size: 200%;
+  margin-bottom: 4%;
+}
+h2, h3 {
+  font-size: 175%;
+  margin-bottom: 3%;
+}
+h4 {
+  font-size: 125%;
+  margin-bottom: 2%;
+}
+p {
+  line-height: 150%;
+}
+ul li {
+  margin-bottom: 2%;
+}
+dl {
+  margin-bottom: 2%;
+}
+dt {
+  margin-top: 25px;
+  font-weight: bold;
+  color: #dedede;
+  text-shadow: 2px 2px 8px #222222;
+}
+dd {
+  margin: 1% 0;
+}
+pre {
+  border: 4px solid #5E5E5E;
+  padding: .5%;
+  margin: .5% 0;
+  background: #1c2024;
+}
+code {
+  font-family: "Andale Mono";
+}
+img {
+  background: #555;
+  padding: 6px;
+}
+/* !CLEARFIX */
+[selector]:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* IE6 */* html [selector] {
+  height: 1%;
+}
+/* IE7 */
+*:first-child + html [selector] {
+  min-height: 1px;
+}
