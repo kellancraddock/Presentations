@@ -46,8 +46,7 @@
             	<dt>How to learn about Git</dt>
             	<dt>What is version control</dt>
             		<dd>Definition</dd>
-            		<dd>History</dd>
-            		<dd>List of Version Control Programs</dd>
+            		<dd>Basis</dd>
             		<dd>Types of Version Control Programs</dd>
                 <dt>Why Git</dt>
                 <dt>Basic Git workflow</dt>
@@ -109,7 +108,7 @@
         <article class="slideContent">
             <!-- header -->
 
-            <h3>The History of Version Control</h3>
+            <h3>The Basis of Version Control</h3>
             <!-- content -->
             <ul>
             	<li>The simplest form of a version control system is duplicating all your documents and renaming the backups with unique revision numbers. The next step would be to use a comparison tool or manually search for changes between backups and combine the differences into a new backup.</li>
@@ -205,7 +204,7 @@
             <h3>The Basic Git Workflow</h3>
             <!-- content -->
             
-            <p><img src="" alt="Basic Git Workflow Diagram" /></p>
+            <p><img src="../images/svn_vs_git.png" alt="Basic Git Workflow Diagram" /></p>
             
             <ul>
             	<li>In Subversion, the repo and changesets (commits) are stored on the remote server. The user checks out the most recent changeset to their local working environment.</li>
@@ -234,7 +233,7 @@
             		<dd>eg. $ git add css/master.css</dd>
             	<dt>Committing your staged change to your local repo with a descriptive message</dt>
             		<dd><pre><code>$ git commit -m [your message]</code></pre></dd>
-            		<dd>eg. $ git commit -m "Fixed bug #4 by adding a hasLayout fix to the sidebar div"</dd>
+            		<dd>eg. $ git commit -m "Adding a hasLayout fix to the sidebar div in order to fix display issue in IE. Fixes Issue #4"</dd>
             	<dt>Finding Help</dt>
             		<dd><pre><code>$ git help</code></pre></dd>
             		<dd>eg. $ git help bisect (shift + q to escape)</dd>
@@ -250,7 +249,7 @@
             <h3>The Basic Git Workflow with Remote Repos</h3>
             <!-- content -->
             
-            <p><img src="" alt="Basic Git Workflow with Remote Repos Diagram" /></p>
+            <p><img src="../images/git_with_remote.png" alt="Basic Git Workflow with Remote Repos Diagram" /></p>
             
             <ul>
             	<li>There is nothing special about remote repos. They are an exact copy of what you have locally.</li>
@@ -306,7 +305,7 @@
             	<li>The workflow for working with remotes can be centralized and tailored around one main remote repo, but it doesn't have to be nor is the Git workflow intended to be.</li>
             </ul>
             
-            <img src="" alt="Distributed Remote Repos" />
+            <img src="../images/git_distributed.png" alt="Distributed Remote Repos" />
         </article>
     </section>
     

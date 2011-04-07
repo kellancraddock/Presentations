@@ -254,8 +254,9 @@ code {
   font-family: "Andale Mono";
 }
 img {
-  background: #555;
-  padding: 6px;
+  background: #dcf0f5;
+  border: 3px dashed #8aa8b0;
+  padding: 20px;
 }
 /* !CLEARFIX */
 [selector]:after {
