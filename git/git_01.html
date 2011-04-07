@@ -27,7 +27,7 @@
     <!-- start title slide -->
     <section class="slide title">
         <article class="slideContent">
-            <p>Git Camp 01</p>
+            <p>Welcome to <strong>Git Camp v01</strong></p>
         </article>
     </section>
     <!-- end title slide -->
@@ -36,20 +36,34 @@
     <section class="slide">
         <article class="slideContent">
             <!-- header -->
-            <h3>What we&rsquo;ll Cover:</h3>
+            <h3>What we&rsquo;ll Cover</h3>
             <!-- content -->
             <dl>
+            	<dt>How to learn about Git</dt>
             	<dt>What is version control</dt>
+            		<dd>Definition</dd>
+            		<dd>History</dd>
+            		<dd>List of Version Control Programs</dd>
+            		<dd>Types of Version Control Programs</dd>
+                <dt>Why Git</dt>
+                <dt>Basic Git workflow</dt>
+                	<dd>Overview</dd>
+                	<dd>Walkthrough</dd>
+                <dt>Working with remote repos</dt>
+                	<dd>Overview</dd>
+                	<dd>Walkthrough</dd>
+                <dt>A little bit more about working with remote repos</dt>
+                <dt>Q &amp; A</dt>
+<!--
                 <dd>How Git is changing how teams collaborate and why it&rsquo;s different than other version control systems</dd>
                 <dt>Basic workflow and commands</dt>
-                <dt>Why Git</dt>
                 <dd>How Git is changing how teams collaborate and why it&rsquo;s different than other version control systems</dd>
                 <dt>Basic workflow and commands</dt>
                 <dd>Everyday usage and concepts</dd>
                 <dt>Working with remote repositories</dt>
                 <dd>The theory behind remote repos and the basic commands for using them</dd>
                 <dt>Review</dt>
-                <dt>Q &amp; A</dt>
+-->
             </dl>
         </article>
     </section>
@@ -58,15 +72,243 @@
     <section class="slide">
         <article class="slideContent">
             <!-- header -->
-            <a name="shortcut2"></a>
 
-            <h3>Title of Slide 2</h3>
+            <h3>How to learn about Git?</h3>
+            <!-- content -->
+            <p>Forget everything you know about version control!</p>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>What is <strong>Version Control</strong>?</h3>
+            <!-- content -->
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Version Control Defined</h3>
+            <!-- content -->
+            <p>Version Control (also known as Revision Control, Source Control, Source Control Management, Source Code Management) by definition is the management of changes between documents</p>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>The History of Version Control</h3>
+            <!-- content -->
+            <ul>
+            	<li>The simplest form of a version control system is duplicating all your documents and renaming the backups with unique revision numbers. The next step would be to use a comparison tool or manually search for changes between backups and combine the differences into a new backup.</li>
+            	<li>Luckily, version control systems have evolved into automated command-line based programs that achieve the same level of management over your changes and more.</li>
+            </ul>
+            
+            <h4>List of Version Control Programs</h4>
+            <ul>
+            	<li>Bazaar</li>
+            	<li>darcs</li>
+            	<li>Git</li>
+            	<li>Mercurial</li>
+            	<li>Perforce</li>
+            	<li>Subversion</li>
+            	<li>Version Cue</li>
+            </ul>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Types of Version Control Programs</h3>
+            <!-- content -->
+            <section class="centralized">
+            	<h4>Centralized</h4>
+            	<dl>
+            		<dt>Examples of Centralized Programs</dt>
+            			<dd>Subversion (SVN), Bazaar, Version Cue, Perforce</dd>
+            		<dt>All changes are tracked (though commits) in a server-side remote repository</dt>
+            		<dt>The user or client arbitrarily checks out and commits changes to the remote repo. Then the <em>remote repo</em> handles the changesets (called deltas), merging and all other version control operations.</dt>
+            	</dl>
+            </section>
+            
+            <section class="distributed">
+	            <h4>Distributed</h4>
+            	<dl>
+            		<dt>Examples of Distributed Programs</dt>
+            			<dd>Git, Mercurial, darcs</dd>
+            		<dt><strong>EVERYONE</strong> (both client and server) has a copy of the <em>full</em> repository, meaning they have full access to the entire history of the repo including every commit ever made.</dt>
+            		<dt>All repo operations like handling changesets, merging, etc. occur <em>locally</em>.</dt>
+            	</dl>
+	        </section>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Why Git?</h3>
+            <!-- content -->
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Why Git?</h3>
             <!-- content -->
             <dl>
-                <dt>For instance,</dt>
-
-                <dd>a definition list</dd>
+            	<dt>Git is Distributed</dt>
+            		<dd>Everyone has a full copy of the repo</dd>
+            		<dd>If a remote server crashes, everyone still has the full copy locally and no history is lost.</dd>
+            		<dd>You aren't dependent on an Internet connection so your normal workflow for committing changesets isn't interrupted.</dd>
+            		<dd>Having the full repo locally promotes more frequent and specific commits of changesets. This gives a more granular and accurate history of all the changes throughout your project.</dd>
+            		<dd>Since most repo operations (like commit, merge, diff, checkout, etc) are handled locally, this dramatically minimizes the amount of bandwidth usage needed.</dd>
+            	<dt>Git has a Stage</dt>
+            		<dd>Well, what is a stage? We'll get to that in a second.</dd>
+            	<dt>Git is Fast</dt>
+            		<dd>Git executes commands much faster than other systems like Subversion because Git handles the majority of its operations locally. Subversion and Mercurial require network access for most network operations</dd>
+            		<dd>See <a href="http://whygitisbetterthanx.com/#git-is-fast">these charts</a> for speed comparison between Git, Mercurial, and Bazaar broken down by command.</dd>
+            	<dt>Git has Easy Branches</dt>
+            		<dd>This is a larger topic for future discussions.</dd>
             </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>The Basic Git Workflow</h3>
+            <!-- content -->
+            
+            <p><img src="" alt="Basic Git Workflow Diagram" /></p>
+            
+            <ul>
+            	<li>In Subversion, the repo and changesets (commits) are stored on the remote server. The user checks out the most recent changeset to their local working environment.</li>
+            	<li>In Git, the user has a full copy of the repo and changesets (commits) locally. All of the operations for the basic Gt workflow can be accessed without Internet connection.</li>
+            	<li>Git has the addition of a "staging" area (or index). The staging area allows you to succinctly craft your commits. For example, if you work for 3 hours on several tasks (like adding a new feature and fixing a QA bug), in Subversion you would have to commit all of these changes together to the server in a single gigantic commit. However, if you use Git, you can add specific files to the stage and then commit these changes individually as separate tasks, rather than one giant unorganized commit. This makes for a more accurate and granular history that describes exactly what code changes map to what tasks.</li>
+            </ul>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>The Basic Git Workflow in Action</h3>
+            <!-- content -->
+            
+            <dl>
+            	<dt>Initializing Git</dt>
+            		<dd>$ git init</dd>
+            	<dt>Adding a file or making code edits through the text editor of your choice</dt>
+            	<dt>Checking the status of your repo</dt>
+            		<dd>$ git status</dd>
+            	<dt>Adding the unstaged changes</dt>
+            		<dd>$ git add [path]</dd>
+            		<dd>eg. $ git add css/master.css</dd>
+            	<dt>Committing your staged change to your local repo with a descriptive message</dt>
+            		<dd>$ git commit -m [your message]</dd>
+            		<dd>eg. $ git commit -m "Fixed bug #4 by adding a hasLayout fix to the sidebar div"</dd>
+            	<dt>Finding Help</dt>
+            		<dd>$ git help</dd>
+            		<dd>eg. $ git help bisect (shift + q to escape)</dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>The Basic Git Workflow with Remote Repos</h3>
+            <!-- content -->
+            
+            <p><img src="" alt="Basic Git Workflow with Remote Repos Diagram" /></p>
+            
+            <ul>
+            	<li>There is nothing special about remote repos. They are an exact copy of what you have locally.</li>
+            	<li>Anything running Git on their server could be called a remote repo. The common practice when you want a remote repo is to use a web service that has Git running on their servers so you can host your code remotely and most provide a web-based interface for visualizing the history and activity of the remote repo. These web services often bundle issue tracking and wikis as well.</li>
+            </ul>
+            
+            <h4>List of Remote Repo Web Services</h4>
+            <ul>
+            	<li>Codebase</li>
+            	<li>GitHub</li>
+            	<li>Unfuddle</li>
+            	<li>Assembla</li>
+            	<li>Beanstalk</li>
+            	<li>Gitorious</li>
+            	<li>Codaset</li>
+            </ul>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>The Basic Git Workflow with Remote Repos in Action</h3>
+            <!-- content -->
+            
+            <dl>
+            	<dt>Once you're ready to host your code, Add a remote repo</dt>
+            		<dd>$ git remote add [remote name] [remote url]</dd>
+            		<dd>eg. $ git remote add origin git@codebasehq.com:cmdagency/my-awesome-new-remote-repo/</dd>
+            	<dt>Follow the Basic Git Workflow by making code edits, add and commit all changes to your local repo</dt>
+            	<dt>Pull any new changes from the remote repo to your local repo</dt>
+            		<dd>$ git pull [remote name] [branch name]</dd>
+            		<dd>eg. $ git pull origin master</dd>
+            	<dt>Push your local changes to the remote repo</dt>
+            		<dd>$ git push [remote name] [branch name]</dd>
+            		<dd>eg. $ git push origin master</dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>A Little Bit More About Working with Remote Repos</h3>
+            <!-- content -->
+            
+            <ul>
+            	<li>Again, anything running Git could be a remote repo.</li>
+            	<li>The workflow for working with remotes can be centralized and tailored around one main remote repo, but it doesn't have to be nor is the Git workflow intended to be.</li>
+            </ul>
+            
+            <img src="" alt="Distributed Remote Repos" />
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Q & A</h3>
+            <!-- content -->
         </article>
     </section>
     

@@ -143,6 +143,12 @@ p {
   line-height: 16px;
   margin-bottom: 10px;
 }
+dl {
+  margin-bottom: 10px;
+}
+dd {
+  text-indent: 1em;
+}
 ul {
   list-style: disc;
   font-size: 11px;
