@@ -113,6 +113,10 @@ body {
 ol, ul {
   list-style: none;
 }
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
 blockquote, q {
   quotes: none;
 }
@@ -229,7 +233,7 @@ ul {
   font-size: 85%;
   color: #697887;
 }
-ul li {
+li {
   margin-bottom: 2%;
 }
 dl {

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Git Camp 1.5</title>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/css/master.css">
+    <link type="text/css" rel="stylesheet" media="projection" href="../styles/css/projection.css">
+    <!--[if lte IE 9]>
+    <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+    </script>
+    <![endif]-->
+    <!-- JS libraries -->
+    <script src="../javascript/highlight/highlight.js"></script>
+    <!-- JS plugins -->
+    <!-- JS Helpers -->
+    <!-- JS MVC -->
+    <!-- JS scripts -->
+    <script>
+		hljs.initHighlightingOnLoad('php','javascript, bash');
+	</script>
+</head>
+
+<body>
+    <!-- start title slide -->
+    <section class="slide title">
+        <article class="slideContent">
+            <h2>Welcome to <strong>Git Camp v1.5</strong></h2>
+        </article>
+    </section>
+    <!-- end title slide -->
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+            <h3>What we&rsquo;ll Cover</h3>
+            <!-- content -->
+            <dl>
+            	<dt>Basic overview and workflow recap</dt>
+            		<dd>Distributed, the Stage, working with remotes</dd>
+            		<dd>Basic commands</dd>
+                <dt>Working through conflicts</dt>
+                	<dd>How conflicts happen</dd>
+                	<dd>Basic conflict resolution</dd>
+                <dt>Navigating commit history</dt>
+                	<dd>Using <code>git checkout</code> to change the repo head</dd>
+                	<dd>Finding errors in code with <code>git bisect</code></dd> 
+                <dt>Q &amp; A</dt>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Basic overview and workflow recap</h3>
+            <!-- content -->
+            <h4>Git is:</h4>
+            <dl>
+        		<dt>Distributed</dt>
+        		<dd>Local repos contain a complete history of commits including every changeset made to the project. The basic Git workflow can be accomplished without a remote repo or network.</dd>
+        		<dt>Fast</dt>
+        		<dd>Because of its distributed nature all repo commands happen locally, making git <em>very</em> fast.</dd>
+        		<dt>Has a Stage (or Index)</dt>
+        		<dd>The Stage allows for very selective and granular commits, ultimately making the project history easier to manage.</dd>
+        		<dt>Git makes Branching easy</dt>
+        		<dd>Git takes an extremely efficient (and less scary) approach to branching.</dd>
+        	</dl>
+        	<p><img src="../images/git_with_remote.png" alt="Basic Git Workflow with Remote Repos Diagram" /></p>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Working through conflicts</h3>
+            <!-- content -->
+            <h4>How conflicts happen</h4>
+            <ol>
+            	<li>A local commit and remotely merged commit have changes to the same file.</li>
+            	<li>Git attempts to merge these files cleanly with the common merge strategies: <em>Resolve, Recursive, Octopus, Ours, Subtree.</em></li>
+            	<li>If the particular file cannot be merged properly git throws a CONFLICT warning, marking the conflicting lines within the given file.</li>
+            	<li>Git expects you to resolve the CONFLICT manually.</li>
+            </ol>
+            <p>By following the "Pull then Push" rule, Git will always isolate conflicts to your local repo. You never have to worry about messing up something on the remote.</p>
+            
+            <h4>Basic conflict resolution</h4>
+            <ol>
+            	<li>Don&rsquo;t Panic!</li>
+            	<li>Run <code>git diff</code> to see the conflicted lines.</li>
+            	<li>Open the conflicted file(s) and look for the conflict markers.</li>
+            	<li>Edit the files to resolve the conflict. Ask the owner of the conflicting commit if you need help.</li>
+            	<li>After fixing the conflict, use <code>git add [path/to/file]</code> and <code>git commit -m "your message"</code> to tell Git that the conflict is fixed</li>
+            	<li>Run <code>git pull [remote] [branch]</code> again in order to insure that the conflict was resolved properly.</li>
+            	<li>Then push your properly merged commit back to the remote. <code>git push [remote] [branch]</code></li>
+            </ol>
+            <dl>
+            	<dt>Use git diff</dt>
+            		<dd><pre><code>$ git diff</code></pre></dd>
+            	<dt>Open the conflicted files and edit them to fix the conflict</dt>
+            	<dt>Check the status of your repo</dt>
+            		<dd><pre><code>$ git status</code></pre></dd>
+            	<dt>Add the conflicted files</dt>
+            		<dd><pre><code>$ git add [path]</code></pre></dd>
+            		<dd>eg. $ git add css/master.css</dd>
+            	<dt>Create a new commit with the resolved conflict</dt>
+            		<dd><pre><code>$ git commit -m [your message]</code></pre></dd>
+            		<dd>eg. $ git commit -m "Fixed a conflict to the master.css file"</dd>
+            	<dt>Pull again to confirm that the conflict was fixed</dt>
+            		<dd><pre><code>$ git pull [remote] [branch]</code></pre></dd>
+            		<dd>eg. $ git pull origin master</dd>
+            	<dt>Push your properly merged commit back to the remote</dt>
+            		<dd><pre><code>$ git push [remote] [branch]</code></pre></dd>
+            		<dd>eg. $ git push origin master</dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Navigating commit history</h3>
+            <!-- content -->
+            <h4>Looking at different commits</h4>
+            <dl>
+            	<dt>HEAD</dt>
+            		<dd>Refers to the most recent commit, or "tip" of the current branch</dd>
+            	<dt>[branch name] e.g master</dt>
+            		<dd>The branch name can be used as a pointer and will always refer to the most recent commit, or "tip" of the specified branch</dd>
+            	<dt>Tags</dt>
+            		<dd>Tags refer to a specific commit and can be used to mark important points in a project timeline</dd>
+            </dl>
+            <dl>
+            	<dt>Use git log to show recent commits</dt>
+            		<dd><pre><code>$ git log</code></pre></dd>
+            	<dt>Use git show to see a particular commit</dt>
+            		<dd><pre><code>$ git show [sha]</code></pre></dd>
+            		<dd>eg. $ git show dj376dj3</dd>
+            	<dt>Use git checkout to change the current HEAD position and files in the working copy</dt>
+            		<dd><pre><code>$ git checkout [sha]</code></pre></dd>
+            		<dd>eg. $ git checkout dj376dj3</dd>
+            </dl>
+            <h4>Using git bisect to find coding errors</h4>
+            <dl>
+            	<dt>Start bisecting</dt>
+            		<dd><pre><code>$ git bisect start</code></pre></dd>
+            	<dt>Tell git which commit is good</dt>
+            		<dd><pre><code>$ git bisect good [sha]</code></pre></dd>
+            		<dd>eg. $ git bisect good dj376dj3</dd>
+            	<dt>Tell git which commit is bad</dt>
+            		<dd><pre><code>$ git bisect bad [sha]</code></pre></dd>
+            		<dd>eg. $ git bisect bad dj376dj3</dd>
+            	<dt>Tell git if each subsequent commit is good or bad</dt>
+            		<dd><pre><code>$ git bisect bad</code></pre></dd>
+            		<dd><pre><code>$ git bisect good</code></pre></dd>
+            	<dt>Once git points you to the culprit commit, you can reset to your original commit</dt>
+            		<dd><pre><code>$ git bisect reset</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+      
+</body>
+</html>
