@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Git Camp 2</title>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" media="all" href="../styles/css/master.css">
+    <link type="text/css" rel="stylesheet" media="projection" href="../styles/css/projection.css">
+    <!--[if lte IE 9]>
+    <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+    </script>
+    <![endif]-->
+    <!-- JS libraries -->
+    <script src="../javascript/highlight/highlight.js"></script>
+    <!-- JS plugins -->
+    <!-- JS Helpers -->
+    <!-- JS MVC -->
+    <!-- JS scripts -->
+    <script>
+		hljs.initHighlightingOnLoad('php','javascript, bash');
+	</script>
+</head>
+
+<body>
+    <!-- start title slide -->
+    <section class="slide title">
+        <article class="slideContent">
+            <h2>Welcome to <strong>Git Camp v2</strong></h2>
+        </article>
+    </section>
+    <!-- end title slide -->
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+            <h3>What we&rsquo;ll Cover</h3>
+            <!-- content -->
+            <dl>
+            	<dt>Pointers</dt>
+            		<dd>Ways to reference specific commits</dd>
+                <dt>Navigating commit history</dt>
+                	<dd>Using <code>git checkout</code> to change the repo head</dd>
+                	<dd>Finding errors in code with <code>git bisect</code></dd>
+                <dt>Dealing with mistakes in past commits</dt>
+                	<dd>How <em>NOT</em> to approach past mistakes</dd>
+                	<dd>Properly reverting past mistakes</dd>
+                <dt>Branching</dt>
+                	<dd>How git treats branches</dd>
+                	<dd>Local .vs Tracked</dd>
+                <dt>Tagging</dt>
+                	<dd>Pointing to a commit with a tag</dd>
+                <dt>Bringing it all together</dt>
+                	<dd>A common branching pattern</dd>
+                	<dd>Tagging all releases</dd>
+                	<dd>Deploying &amp; QA with git</dd>
+                <dt>Q &amp; A</dt>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Pointers</h3>
+            <!-- content -->
+            <h4>A few common pointers:</h4>
+            <dl>
+        		<dt>Head</dt>
+        		<dd>Always points to the most recent commit or "tip" on the <em>current</em> branch.</dd>
+        		<dt>[Branch Name] e.g Master</dt>
+        		<dd>Always points to the most recent commit or "tip" on the <em>specified</em> branch.</dd>
+        		<dt>Tag</dt>
+        		<dd>Allows you to point to a specific commit and can be used to mark important points in a project timeline.</dd>
+        	</dl>
+        	<p><img src="../images/git_with_remote.png" alt="Branch with pointers" /></p>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Navigating commit history</h3>
+            <!-- content -->
+            <h4>Looking at different commits</h4>
+            <dl>
+            	<dt>Use git log to show recent commits</dt>
+            		<dd><pre><code>$ git log</code></pre></dd>
+            	<dt>Use git show to see a particular commit</dt>
+            		<dd><pre><code>$ git show [sha]</code></pre></dd>
+            		<dd>eg. $ git show dj376dj3</dd>
+            	<dt>Use git checkout to change the current HEAD position and files in the working copy</dt>
+            		<dd><pre><code>$ git checkout [sha]</code></pre></dd>
+            		<dd>eg. $ git checkout dj376dj3</dd>
+            </dl>
+            <h4>Using git bisect to find coding errors</h4>
+            <dl>
+            	<dt>Start bisecting</dt>
+            		<dd><pre><code>$ git bisect start</code></pre></dd>
+            	<dt>Tell git which commit is good</dt>
+            		<dd><pre><code>$ git bisect good [sha]</code></pre></dd>
+            		<dd>eg. $ git bisect good dj376dj3</dd>
+            	<dt>Tell git which commit is bad</dt>
+            		<dd><pre><code>$ git bisect bad [sha]</code></pre></dd>
+            		<dd>eg. $ git bisect bad dj376dj3</dd>
+            	<dt>Tell git if each subsequent commit is good or bad</dt>
+            		<dd><pre><code>$ git bisect bad</code></pre></dd>
+            		<dd><pre><code>$ git bisect good</code></pre></dd>
+            	<dt>Once git points you to the culprit commit, you can reset to your original commit</dt>
+            		<dd><pre><code>$ git bisect reset</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+    
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+            <h3>Fixing mistakes in past commits</h3>
+            <!-- content -->
+            <h4>Never edit commit history.</h4>
+            <ul>
+            	<li>Git allows you to edit past commits, but don't do it.</li>
+            	<li>Follow best practices and always "revert" past mistakes by simply making a new commit.</li>
+            </ul>
+            <dl>
+            	<dt>Using git revert to undo a past mistake by creating a new commit</dt>
+            		<dd><pre><code>$ git revert [sha]</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+      
+</body>
+</html>
