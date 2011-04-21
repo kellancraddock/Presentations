@@ -6,6 +6,7 @@
     <!-- CSS -->
     <link type="text/css" rel="stylesheet" media="all" href="../styles/css/master.css">
     <link type="text/css" rel="stylesheet" media="projection" href="../styles/css/projection.css">
+    <link type="text/css" rel="stylesheet" media="print" href="../styles/css/projection.css">
     <!--[if lte IE 9]>
     <script>
         document.createElement('header');
@@ -51,11 +52,11 @@
                 <dt>Dealing with mistakes in past commits</dt>
                 	<dd>How <em>NOT</em> to approach past mistakes</dd>
                 	<dd>Properly reverting past mistakes</dd>
+                <dt>Tagging</dt>
+                	<dd>Pointing to a commit with a tag</dd>
                 <dt>Branching</dt>
                 	<dd>How git treats branches</dd>
                 	<dd>Local .vs Tracked</dd>
-                <dt>Tagging</dt>
-                	<dd>Pointing to a commit with a tag</dd>
                 <dt>Bringing it all together</dt>
                 	<dd>A common branching pattern</dd>
                 	<dd>Tagging all releases</dd>
@@ -81,7 +82,7 @@
         		<dt>Tag</dt>
         		<dd>Allows you to point to a specific commit and can be used to mark important points in a project timeline.</dd>
         	</dl>
-        	<p><img src="../images/git_with_remote.png" alt="Branch with pointers" /></p>
+        	<p><img src="../images/branch_one.png" alt="Branch with pointers" /></p>
         </article>
     </section>
     
@@ -99,7 +100,7 @@
             	<dt>Use git show to see a particular commit</dt>
             		<dd><pre><code>$ git show [sha]</code></pre></dd>
             		<dd>eg. $ git show dj376dj3</dd>
-            	<dt>Use git checkout to change the current HEAD position and files in the working copy</dt>
+            	<dt>Use git checkout to change the current HEAD position and files in the working copy. This does not change the repo structure itself.</dt>
             		<dd><pre><code>$ git checkout [sha]</code></pre></dd>
             		<dd>eg. $ git checkout dj376dj3</dd>
             </dl>
@@ -143,7 +144,33 @@
     <section class="slide">
         <article class="slideContent">
             <!-- header -->
+
+            <h3>Tagging</h3>
+            <!-- content -->
+            <h4>Using tags</h4>
+            <ul>
+            	<li>Tags allow you to perminantly point to a specific commit</li>
+            	<li>Tags are great for marking important milestones in a projects history such as version releases</li>
+            </ul>
+            <h4>Creating a tag</h4>
+            <dl>
+            	<dt>Looking at existing tags</dt>
+            		<dd><pre><code>$ git tag</code></pre></dd>
+            	<dt>Creating a new tag</dt>
+            		<dd><pre><code>$ git tag -a [reference, version number] -m [your message]</code></pre></dd>
+            		<dd>eg. $ git tag -a v1.0.1 -m "My new tag"</dd>
+            	<dt>Pushing tags to the remote</dt>
+            		<dd><pre><code>$ git push --tags</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
             <h3>Branching</h3>
+            <p><img src="../images/branch_two.png" alt="Multiple branches with pointers" /></p>
             <!-- content -->
             <h4>How branching works in Git</h4>
             <ul>
@@ -155,6 +182,7 @@
             	<li>Local branches exist only on your local repo and not on the remote</li>
             	<li>Local branches are perfect for experimenting with code or features that need to remain separate from the main development branch</li>
             </ul>
+            <p><img src="../images/branch_merged.png" alt="Branch with pointers merged" /></p>
             <h4>Remote branches</h4>
             <ul>
             	<li>Remote branches exist on the remote server and can be pushed and pulled from just like the Master branch</li>
@@ -182,32 +210,7 @@
             </dl>
         </article>
     </section>
-    
-    <!-- new slide -->
-    <section class="slide">
-        <article class="slideContent">
-            <!-- header -->
 
-            <h3>Tagging</h3>
-            <!-- content -->
-            <h4>Using tags</h4>
-            <ul>
-            	<li>Tags allow you to perminantly point to a specific commit</li>
-            	<li>Tags are great for marking important milestones in a projects history such as version releases</li>
-            </ul>
-            <h4>Creating a tag</h4>
-            <dl>
-            	<dt>Looking at existing tags</dt>
-            		<dd><pre><code>$ git tag</code></pre></dd>
-            	<dt>Creating a new tag</dt>
-            		<dd><pre><code>$ git tag -a [reference, version number] -m [your message]</code></pre></dd>
-            		<dd>eg. $ git tag -a v1.0.1 -m "My new tag"</dd>
-            	<dt>Pushing tags to the remote</dt>
-            		<dd><pre><code>$ git push --tags</code></pre></dd>
-            </dl>
-        </article>
-    </section>
-    
     <!-- new slide -->
     <section class="slide">
         <article class="slideContent">
