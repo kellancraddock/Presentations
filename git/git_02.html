@@ -134,7 +134,98 @@
             </ul>
             <dl>
             	<dt>Using git revert to undo a past mistake by creating a new commit</dt>
-            		<dd><pre><code>$ git revert [sha]</code></pre></dd>
+            		<dd><pre><code>$ git revert --no-edit [sha]</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+            <h3>Branching</h3>
+            <!-- content -->
+            <h4>How branching works in Git</h4>
+            <ul>
+            	<li>Git always defaults with a Master branch, basically a "trunk".</li>
+            	<li>Git creates branches by simply remembering which commits are associated with the given branch.</li>
+            </ul>
+            <h4>Local Branches</h4>
+            <ul>
+            	<li>Local branches exist only on your local repo and not on the remote</li>
+            	<li>Local branches are perfect for experimenting with code or features that need to remain separate from the main development branch</li>
+            </ul>
+            <h4>Remote branches</h4>
+            <ul>
+            	<li>Remote branches exist on the remote server and can be pushed and pulled from just like the Master branch</li>
+            	<li>This would allow for separating whole lines of development one for Development, one for QA and one for releasable versions</li>
+            </ul>
+            <h4>Working with Local Branches</h4>
+            <dl>
+            	<dt>Looking at existing branches</dt>
+            		<dd><pre><code>$ git branch</code></pre></dd>
+            	<dt>Creating a new branch</dt>
+            		<dd><pre><code>$ git branch [branch name]</code></pre></dd>
+            		<dd>eg. $ git branch my_branch</dd>
+            		<dd><pre><code>$ git branch [branch name] [sha or pointer]</code></pre></dd>
+            		<dd>eg. $ git branch my_branch dj376dj3</dd>
+            	<dt>Switching branches</dt>
+            		<dd><pre><code>$ git checkout [branch name]</code></pre></dd>
+            		<dd>eg. $ git checkout my_branch</dd>
+            	<dt>Do some work, make some commits</dt>
+            	<dt>Moving commits between local branches by merging</dt>
+            		<dd><pre><code>$ git merge [branch name]</code></pre></dd>
+            		<dd>eg. $ git checkout master</dd>
+            		<dd>eg. $ git merge my_branch</dd>
+            	<dt>Deleting a local branch</dt>
+            		<dd><pre><code>$ git branch -d [branch name]</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+
+            <h3>Tagging</h3>
+            <!-- content -->
+            <h4>Using tags</h4>
+            <ul>
+            	<li>Tags allow you to perminantly point to a specific commit</li>
+            	<li>Tags are great for marking important milestones in a projects history such as version releases</li>
+            </ul>
+            <h4>Creating a tag</h4>
+            <dl>
+            	<dt>Looking at existing tags</dt>
+            		<dd><pre><code>$ git tag</code></pre></dd>
+            	<dt>Creating a new tag</dt>
+            		<dd><pre><code>$ git tag -a [reference, version number] -m [your message]</code></pre></dd>
+            		<dd>eg. $ git tag -a v1.0.1 -m "My new tag"</dd>
+            	<dt>Pushing tags to the remote</dt>
+            		<dd><pre><code>$ git push --tags</code></pre></dd>
+            </dl>
+        </article>
+    </section>
+    
+    <!-- new slide -->
+    <section class="slide">
+        <article class="slideContent">
+            <!-- header -->
+            <h3>Bringing it all together</h3>
+            <!-- content -->
+            <h4>How git could work for us:</h4>
+            <dl>
+            	<dt>Distributed workflow</dt>
+            		<dd>Better commits, project history and collaboration on larger projects</dd>
+            	<dt>Tagging releases for internal review, QA, and client handoffs</dt>
+            		<dd>Total accountability for released code (no more wondering who has the most recent version that QA tested).</dd>
+            	<dt>Local and remote branching</dt>
+            		<dd>Local branching encourages experimentation</dd>
+            		<dd>Remote branching allows for multiple lines of development on the same project, allowing development to extend past released versions.</dd>
+            	<dt>Deployment with git</dt>
+            		<dd>The staging server can be treated as another remote. Deploying a project for QA or internal review could be as easy as <code>git push staging master</code></dd>
+            		<dd>If our production servers were running git as well, updating a live production site could be as easy as <code>git push production master</code></dd>
             </dl>
         </article>
     </section>
